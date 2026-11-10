@@ -1,0 +1,7 @@
+web-ext-artifacts/
+.amo-upload-uuid
+.DS_Store
+.claude/
+node_modules/
+store/
+web-ext-config.mjs

@@ -1,0 +1,48 @@
+/*
+ * Hides every Shorts element on YouTube.
+ * Note: a single invalid selector would invalidate the whole list, so only
+ * standard selectors and :has() (Firefox 121+) are used.
+ */
+
+/* Left sidebar and the collapsed mini guide */
+ytd-guide-entry-renderer:has(a[title="Shorts"]),
+ytd-guide-entry-renderer:has(a[href^="/shorts"]),
+ytd-mini-guide-entry-renderer[aria-label="Shorts"],
+ytd-mini-guide-entry-renderer:has(a[href^="/shorts"]),
+
+/* Shorts shelves on Home, Subscriptions, Search and watch-page recommendations */
+ytd-rich-section-renderer:has(ytd-rich-shelf-renderer[is-shorts]),
+ytd-rich-section-renderer:has(ytm-shorts-lockup-view-model),
+ytd-rich-section-renderer:has(ytm-shorts-lockup-view-model-v2),
+ytd-rich-shelf-renderer[is-shorts],
+ytd-reel-shelf-renderer,
+grid-shelf-view-model:has(ytm-shorts-lockup-view-model),
+grid-shelf-view-model:has(ytm-shorts-lockup-view-model-v2),
+
+/* Individual Shorts videos in lists and grids */
+ytd-rich-item-renderer:has(a[href^="/shorts/"]),
+ytd-rich-item-renderer:has(ytm-shorts-lockup-view-model),
+ytd-rich-item-renderer:has(ytm-shorts-lockup-view-model-v2),
+ytd-video-renderer:has(a[href^="/shorts/"]),
+ytd-grid-video-renderer:has(a[href^="/shorts/"]),
+ytd-compact-video-renderer:has(a[href^="/shorts/"]),
+ytd-playlist-video-renderer:has(a[href^="/shorts/"]),
+yt-lockup-view-model:has(a[href^="/shorts/"]),
+ytd-notification-renderer:has(a[href^="/shorts/"]),
+ytm-shorts-lockup-view-model,
+ytm-shorts-lockup-view-model-v2,
+
+/* Shorts tab on channel pages (the search filter chip is hidden in the script) */
+yt-tab-shape[tab-title="Shorts"],
+
+/* Mobile site m.youtube.com */
+ytm-pivot-bar-item-renderer:has(.pivot-shorts),
+ytm-reel-shelf-renderer,
+ytm-rich-section-renderer:has(ytm-reel-shelf-renderer),
+ytm-rich-section-renderer:has(ytm-shorts-lockup-view-model),
+ytm-rich-section-renderer:has(ytm-shorts-lockup-view-model-v2),
+ytm-rich-item-renderer:has(a[href^="/shorts/"]),
+ytm-video-with-context-renderer:has(a[href^="/shorts/"]),
+ytm-compact-video-renderer:has(a[href^="/shorts/"]) {
+  display: none !important;
+}
